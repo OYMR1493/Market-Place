@@ -1,0 +1,14 @@
+.card-container{
+    max-width: 35em;
+    margin: 15rem auto 15rem auto;
+    .card {
+        padding: 50px 60px 50px 60px;
+        .forget-password-link{
+            margin-top: 1rem;
+        }
+        .fa{
+            cursor: pointer;
+        }
+    }
+}
+  
