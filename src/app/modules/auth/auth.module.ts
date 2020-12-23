@@ -3,9 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-/* Firebase Library Modules */
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
 /* components */
 import { ContentComponent } from './pages/content/content.component';
 import { LoginComponent } from './components/login/login.component';
@@ -18,7 +15,7 @@ import { RegisterComponent } from './components/register/register.component';
     CommonModule,
     AuthRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class AuthModule { }

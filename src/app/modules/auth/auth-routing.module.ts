@@ -8,16 +8,22 @@ import { RegisterComponent } from "./components/register/register.component";
 const routes: Routes = [
   {
     path: '',
-    component: ContentComponent
+    component: ContentComponent,
+    children: [
+      {
+        path: '',
+        component: LoginComponent
+      },
+      {
+        path: 'registro',
+        component: RegisterComponent
+      },
+      {
+        path: '',
+        redirectTo: '',
+      },
+    ]
   },
-  {
-    path: 'registro',
-    component: RegisterComponent
-  },
-  {
-    path: '**',
-    redirectTo: ''
-  }
 ];
 
 @NgModule({

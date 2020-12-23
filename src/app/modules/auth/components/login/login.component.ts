@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router } from  "@angular/router";
+import { AuthService } from "../../../../services/index";
 
 @Component({
   selector: 'app-login',
@@ -10,10 +11,12 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   showPassword: boolean;
+  user:any;
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
+    public authService: AuthService, 
   ) {}
 
   ngOnInit(): void {
@@ -23,12 +26,15 @@ export class LoginComponent implements OnInit {
   /* Inicilizacion de formulario para iniciar sesion */
   initFormLogin() {
     this.loginForm = this.fb.group({
-      username: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
   }
 
-  login(){}
+  async login(){
+    this.user = await this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value);
+    console.log('usuario', this.user)
+  }
 
   eyeBotton(){
     this.showPassword = !this.showPassword
