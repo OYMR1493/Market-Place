@@ -1,0 +1,87 @@
+@import '../../../../scss/abstracts/variables';
+.wrapper {
+  display: flex;
+  width: 100%;
+  .sidebar {
+    overflow: scroll;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 999;
+    background: $primary-color;
+    color: $button-text;
+    transition: all 0.3s;
+    &.active {
+      margin-left: -250px;
+      height: 100vh;
+    }
+    .components{
+      padding: 20px 0;
+      li.active > a{
+        color: $button-text;
+        background: $second-color;
+      }
+      .menu{
+        a {
+          padding: 15px;
+          font-size: 1.1em;
+          display: block;
+          color: $button-text;
+          text-decoration: none;
+        }
+        a:hover {
+          color: $button-text;
+          background: $second-color;
+        }
+      }
+      .submenu{
+        li.active > a{
+          color: $button-text;
+          background: $second-color;
+          margin: 5px 5px 5px 20px;
+        }
+        .submenu-link:hover{
+          color: $button-text;
+          background-color: $second-color;
+        }
+        .submenu-link {
+          position: relative;
+          margin: 5px 5px 5px 20px;
+        }
+      }
+    }
+  }
+  .content {
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    .row-navbar{
+      width: 100%;
+    }
+  }
+  .content.active {
+    width: 100%;
+  }
+  .navbar{
+    position: fixed;
+      width: 100%;
+      margin-bottom: 30%;
+      z-index: 2;
+  }
+}
+
+.dropdown-item{
+  cursor: pointer;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+}

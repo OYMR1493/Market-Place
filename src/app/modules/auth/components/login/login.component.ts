@@ -33,7 +33,9 @@ export class LoginComponent implements OnInit {
 
   async login(){
     this.user = await this.authService.login(this.loginForm.get('email').value, this.loginForm.get('password').value);
-    console.log('usuario', this.user)
+    if(this.user){
+      this.router.navigate([`/panel/inventario`])
+    }
   }
 
   eyeBotton(){

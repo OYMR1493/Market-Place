@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
+    path: 'panel',
+    loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule)
+  },
+  {
     path: '**',
     redirectTo: 'inicio'
   }

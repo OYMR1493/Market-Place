@@ -1,0 +1,43 @@
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav  class="sidebar {{openSide ? '' : 'active'}}">
+        <ul class="list-unstyled components">
+            <li class="menu" *ngFor="let menu of arrayMenuOptions" [routerLinkActive]="['active']">
+                <a class="dropdown-toggle" *ngIf="menu.label == 'Dashboard'" href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"><i class="fas {{menu.icon}}"></i> Dashboard</a>
+                <ul class="submenu collapse list-unstyled" id="pageSubmenu" *ngIf="menu.modules">
+                    <li *ngFor="let subMenu of menu.modules" [routerLinkActive]="['active']">
+                        <a class="submenu-link" routerLink="/panel{{menu.link}}{{subMenu.link}}">{{subMenu.label}}</a>
+                    </li>
+                </ul>
+                <a *ngIf="menu.label != 'Dashboard'" routerLink="/panel{{menu.link}}"><i class="{{ menu.name == 'whatsapp' ? 'fab' : 'fas' }} {{menu.icon}}"></i> {{menu.label}}</a>
+            </li> 
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="content {{openSide ? '' : 'active'}}">
+        <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="row row-navbar">
+                    <div class="col col-8 col-xl-9">
+                        <button type="button" (click)="openSidebar()" class="btn btn-info">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="col col-4 col-xl-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Mi perfil</a>
+                            <a class="dropdown-item">Cerrar sesión</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
