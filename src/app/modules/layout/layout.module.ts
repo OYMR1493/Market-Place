@@ -6,8 +6,7 @@ import { ContentComponent } from "./pages/content/content.component";
 
 @NgModule({
   declarations: [
-    ContentComponent,
-    ProductsComponent
+    ContentComponent
   ],
   imports: [
     CommonModule,

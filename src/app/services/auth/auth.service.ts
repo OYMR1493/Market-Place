@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs';
+import swal from 'sweetalert';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,7 @@ export class AuthService {
       (res:any)=>{
         return res;
       }).catch((error:any)=>{
-        return error;
+        swal("ERROR!", "correo o contraseña invalidos", "error");
     });
   }
 }

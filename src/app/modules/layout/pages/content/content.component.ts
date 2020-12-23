@@ -1,6 +1,5 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import {isPlatformBrowser} from "@angular/common";
-
 /* models */
 import { SectionModel } from "../../../models/admin/section.model";
 
